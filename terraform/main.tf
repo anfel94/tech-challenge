@@ -21,12 +21,14 @@ module "gke" {
   network_policy             = false
   horizontal_pod_autoscaling = true
 
+  deletion_protection	 = false
+
   node_pools = [
     {
       name                       = "default-node-pool"
       machine_type               = "e2-micro"
       min_count                  = 1
-      max_count                  = 2
+      max_count                  = 3
       disk_size_gb               = 50
       disk_type                  = "pd-standard"
       image_type                 = "COS_CONTAINERD"
